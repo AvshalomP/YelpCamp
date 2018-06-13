@@ -20,10 +20,11 @@ var indexRoutes         = require("./routes/index"),
     commentRoutes       = require("./routes/comments");
 
 /* APP config */
-app.set("view engine", "ejs");                          //adding .ejs suffix
-app.use(express.static(__dirname+"/public"));           //public dir
-app.use(bodyParser.urlencoded({extended: true}));       //body-parser
-mongoose.connect("mongodb://localhost/yelp_camp_v17");  //connecting to our db
+app.set("view engine", "ejs");                              //adding .ejs suffix
+app.use(express.static(__dirname+"/public"));               //public dir
+app.use(bodyParser.urlencoded({extended: true}));           //body-parser
+// mongoose.connect("mongodb://localhost/yelp_camp_v17");   //connecting to our db
+mongoose.connect("mongodb://avshalom:sS190319@ds159100.mlab.com:59100/yelp_campground");  //connecting to our db
 app.use(flash());
 
 
