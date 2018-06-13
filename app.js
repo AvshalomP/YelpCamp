@@ -23,8 +23,8 @@ var indexRoutes         = require("./routes/index"),
 app.set("view engine", "ejs");                              //adding .ejs suffix
 app.use(express.static(__dirname+"/public"));               //public dir
 app.use(bodyParser.urlencoded({extended: true}));           //body-parser
-// mongoose.connect("mongodb://localhost/yelp_camp_v17");   //connecting to our db
-mongoose.connect("mongodb://avshalom:sS190319@ds159100.mlab.com:59100/yelp_campground");  //connecting to our db
+// mongoose.connect(process.env.LOCAL_DB_URL);     //connecting to our db
+mongoose.connect(process.env.HERO_DEF_PROD_DB_URL);      //connecting to our db
 app.use(flash());
 
 
