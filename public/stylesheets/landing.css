@@ -1,0 +1,99 @@
+/*page black background collor*/
+body {
+  background-color: #000;
+}
+
+/*messing with the welcom text and button*/
+#landing-header {
+    z-index: 1; /*x,y are for: left,right,up down, but z axis is like bring to front or put in background, 
+                  meaning the element that has the higher z will be infront of the other */
+    position: relative; /*probably it has to come when messing with the z axis, 'cause the element can't be static (the difault position) */
+    text-align: center; /*center the text horizontally */
+    padding-top: 40vh; /*center the text vertically (vh means: view height) */
+}
+/*coloring the welcome text in white*/
+#landing-header h1 {
+    color: #fff;
+}
+
+/* styling the ul */
+.slideshow { 
+    position: fixed;
+    /*to take the whole page*/
+    width: 100%;    
+    height: 100%;
+    /*end*/
+    top: 0;     /*y axis to 0*/
+    left: 0;    /*x axis to 0*/
+    z-index: 0; /*sending the backgrounds to be behind the welcome text and button*/
+    list-style: none; /*removing the bullet points*/
+    /*to make sure we have no gaps so we can take the whole page*/
+    margin: 0; 
+    padding: 0;
+}
+/* now we style every li */
+.slideshow li { 
+    /*telling the li to take the whole page*/
+    width: 100%;
+    height: 100%;
+    /*end*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-size: cover;          /* this will allow the images to take the entire space of the page*/
+    background-position: 50% 50%;    /*to center the images perfectlly on the page*/
+    background-repeat: no-repeat;    /*this tells the picture not to repeat itself - no patching with cuts 
+                                        of the image to cover the full space of the page*/
+    opacity: 0;    /*to start our images faded out. then the animation will set slowly the opacity to 1*/
+    z-index: 0; /*sending the backgrounds to be behind the welcome text and button*/
+    animation: imageAnimation 50s linear infinite; /*this will allow us to fade the images in and out. */
+    /*animation arguments:  1. imageAnimation - an arbitrary name, 
+                            2. 50s - this is how long the animation will last, 
+                            3. linear - will tell the animation to be at the same speen from begining to end,
+                            4. infinite - tells the animation to loop infinatly */
+}
+/*setting the images for every li*/
+/*we will have image showing and fading every 10s (the total of the animation to restart is 50s, meaning 5 images per loop to present */
+.slideshow li:nth-child(1) { 
+    background-image: url(http://i.imgur.com/K3mPv14.jpg) 
+}
+.slideshow li:nth-child(2) { 
+    background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+    animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+    background-image: url(http://i.imgur.com/emvhOnb.jpg);
+    animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+    background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+    animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+    background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+    animation-delay: 40s; 
+}
+
+/*This is the animation controller*/
+@keyframes imageAnimation { /*@keyframes is the selector to control the frames of our page*/
+    0% { 
+        opacity: 0; 
+        animation-timing-function: ease-in;
+    }
+    10% {
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    20% {
+        opacity: 1
+    }
+    30% {
+        opacity: 0
+    }
+}
+
+/*making sure our page works for all browsers */
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

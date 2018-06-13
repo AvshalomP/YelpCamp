@@ -1,0 +1,17 @@
+.thumbnail img{
+    width: 100%;
+}
+
+.thumbnail{
+    padding: 0;
+}
+
+.delete-form{
+    display: inline; /*will inline the 'delete' button with the 'edit' button, because the <form> of the 'delete' button is defining an element in a seperate line*/
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+<!--HTML header-->
+<% include ./partials/header %>
+
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">Reset Password</h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <hr>
+                <form action="/forgot" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" name="email" autofocus placeholder="email">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-danger btn-block">Reset</button>
+                    </div>
+                </form>
+                <a href="/login">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+<!--HTML footer-->
+<% include ./partials/footer %>

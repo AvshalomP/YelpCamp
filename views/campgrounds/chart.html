@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RESTful Routes</title>
+<!-- 	<link rel="stylesheet" type="text/css" href="bootstrap.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+<body>
+
+	<div class="container">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<div class="jumbotron">
+				<h1>RESTful Routes</h1>
+				<p>A table of all 7 RESTful routes </p>
+			</div>
+			<table class="table table-hover table-bordered">
+			<thead>	
+				<tr>
+					<th>Name</th>
+					<th>Path</th>
+					<th>HTTP Verb</th>
+					<th>Purpose</th>
+					<th>Mongoose Method</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Index</td>
+					<td>/campgrounds</td>
+					<td>GET</td>
+					<td>List all campgrounds</td>
+					<td>Campground.find()</td>
+				</tr>
+				<tr class="success">
+					<td>New</td>
+					<td>/campgrounds/new</td>
+					<td>GET</td>
+					<td>Show new campground form</td>
+					<td>N/A</td>
+				</tr>
+				<tr class="success">
+					<td>Create</td>
+					<td>/campgrounds</td>
+					<td>POST</td>
+					<td>Create a new campground, then redirect somewhere</td>
+					<td>Campground.create()</td>
+				</tr>
+				<tr class="info">
+					<td>Show</td>
+					<td>/campgrounds/:id</td>
+					<td>GET</td>
+					<td>Show info about one specific campground</td>
+					<td>Campground.findById()</td>
+				</tr>
+				<tr class="warning">
+					<td>Edit</td>
+					<td>/campgrounds/:id/edit</td>
+					<td>GET</td>
+					<td>Show edit form for one campground</td>
+					<td>Campground.findById()</td>
+				</tr>
+				<tr class="warning">
+					<td>Update</td>
+					<td>/campgrounds/:id</td>
+					<td>PUT</td>
+					<td>Update particular campground, then redirect somewhere</td>
+					<td>Campground.findByIdAndUpdate()</td>
+				</tr>
+				<tr class="danger">
+					<td>Destroy</td>
+					<td>/campgrounds/:id</td>
+					<td>DELETE</td>
+					<td>Delete a particular campground, then redirect somewhere</td>
+					<td>Campground.findByIdAndRemove()</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+	</div>	
+</body>
+</html>

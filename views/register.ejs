@@ -1,0 +1,43 @@
+<!--HTML header-->
+<% include ./partials/header %>
+
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">Sign Up</h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <hr>
+                <form action="/register" method="POST">
+                    <div class="form-group">
+                        <label for="username">Name</label>
+                        <input class="form-control" type="text" name="username" placeholder="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" type="password" name="password" placeholder="password">
+                    </div>
+                    <div class="form-group" style="display: none;">
+                        <label for="passwordRetyped">Retype Password</label>
+                        <input class="form-control" type="password" name="passwordRetyped" placeholder="retype password">
+                    </div>
+                    <div class="form-group"> <!-- unique field -->
+                        <label for="email">Email</label>
+                        <input class="form-control" type="email" name="email" placeholder="email address">
+                    </div>
+                    <div class="form-group"> <!-- unique field -->
+                        <label for="emailRetyped">Retype Email</label>
+                        <input class="form-control" type="email" name="emailRetyped" placeholder="retype email address">
+                    </div>
+                    <div class="form-group" style="display: none;"> <!-- hide field -->
+                        <input class="form-control" type="password" name="adminCode" placeholder="Admin code">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Sign Up!</button>
+                    </div>
+                </form>
+                <a href="/campgrounds">Go Back</a>
+            </div>
+        </div>
+    </div>
+
+<!--HTML footer-->
+<% include ./partials/footer %>
