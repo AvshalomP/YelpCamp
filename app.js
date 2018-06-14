@@ -1,6 +1,3 @@
-/* dependency module that loads environment variables from a .env (our GoogleMaps API key) */
-require('dotenv').config();
-
 /* APP dependencies */
 var express         = require("express"),
     app             = express(),
@@ -23,8 +20,8 @@ var indexRoutes         = require("./routes/index"),
 app.set("view engine", "ejs");                              //adding .ejs suffix
 app.use(express.static(__dirname+"/public"));               //public dir
 app.use(bodyParser.urlencoded({extended: true}));           //body-parser
-// mongoose.connect(process.env.LOCAL_DB_URL);     //connecting to our db
-mongoose.connect(process.env.HERO_DEF_PROD_DB_URL);      //connecting to our db
+var url = process.env.HERO_DEF_PROD_DB_URL || process.env.LOCAL_DB_URL; //this is a backup if the heroku env variable is not accessible
+mongoose.connect(url);      //connecting to our db
 app.use(flash());
 
 
