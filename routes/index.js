@@ -83,10 +83,9 @@ router.post('/forgot', function(req, res, next) {
       });
     },
     function(token, done) {
-      console.log("req.body.email: "+req.body.email);
       User.findOne({ email: req.body.email }, function(err, user) {
        if(err){
-          console.log("findOne: "+err);
+          console.log(err);
         }
         if (!user) {
           req.flash('error', 'No account with that email address exists.');
@@ -98,7 +97,7 @@ router.post('/forgot', function(req, res, next) {
 
         user.save(function(err) {
           if(err){
-            console.log("save: "+err);
+            console.log(err);
           }
           done(err, token, user);
         });
