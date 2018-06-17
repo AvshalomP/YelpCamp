@@ -83,8 +83,8 @@ router.post('/forgot', function(req, res, next) {
       });
     },
     function(token, done) {
+      console.log("req.body.email: "+req.body.email);
       User.findOne({ email: req.body.email }, function(err, user) {
-       console.log("findOne: "+req.body.email);
        if(err){
           console.log("findOne: "+err);
         }
