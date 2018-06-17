@@ -84,6 +84,9 @@ router.post('/forgot', function(req, res, next) {
     },
     function(token, done) {
       User.findOne({ email: req.body.email }, function(err, user) {
+       if(err){
+          console.log("findOne: "+err);
+        }
         if (!user) {
           req.flash('error', 'No account with that email address exists.');
           return res.redirect('/forgot');
@@ -93,6 +96,9 @@ router.post('/forgot', function(req, res, next) {
         user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
         user.save(function(err) {
+          if(err){
+            console.log("save: "+err);
+          }
           done(err, token, user);
         });
       });
@@ -115,6 +121,9 @@ router.post('/forgot', function(req, res, next) {
           'If you did not request this, please ignore this email and your password will remain unchanged.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
+        if(err){
+          console.log("sendMail"+err);
+        }
         console.log('mail sent');
         req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
         done(err, 'done');
