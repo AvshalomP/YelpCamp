@@ -14,6 +14,11 @@ body {
 /*coloring the welcome text in white*/
 #landing-header h1 {
     color: #fff;
+    font-size: 70px;
+}
+
+#landing-header h3 {
+    color: #fff;
 }
 
 /* styling the ul */

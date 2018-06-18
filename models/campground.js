@@ -5,6 +5,7 @@ var campgroundSchema = new mongoose.Schema({
     name: String,
     cost: String,
     image: String,
+    imageId: String, //for deleting images from cloudinary
     description: String,
     location: String,
     lat: Number,

@@ -5,22 +5,31 @@
         <div class="row">
             <h1 style="text-align: center;">Create a new campground:</h1>
             <div style="width: 30%; margin: 25px auto;">
-                <form action="/campgrounds" method="POST">
+                <form action="/campgrounds" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <input class="form-control" type="text" name="name" placeholder="name">
+                        <label>Name</label>
+                        <input class="form-control" type="text" name="campground[name]" placeholder="name">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="number" name="cost" placeholder="cost" min="0.01" step="0.01">
+                        <label>Cost per night</label>
+                        <input class="form-control" type="number" name="campground[cost]" placeholder="cost" min="0.01" step="0.01">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" name="image" placeholder="image url">
+                        <label>Select image option</label>
+                        <select require class="form-control" id="choose">
+                            <option value="1" selected="selected">Paste URL image below</option>
+                            <option value="2">Upload image</option>
+                        </select>
+                        <input type="file" class="imageInput" id="uploadImage" name="image" style="display: none;" accept="image/*">
+                        <input class="form-control imageInput" id="urlImage" name="campground[image]" style="display: none;" placeholder="paste URL image here">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="text" name="description" placeholder="description">
+                        <label>Description</label>
+                        <input class="form-control" type="text" name="campground[description]" placeholder="description">
                     </div>
                     <div class="form-group">
                         <label for="location">Location</label>
-                        <input class="form-control" type="text" name="location" id="location" placeholder="Yosemite National Park, CA">
+                        <input class="form-control" type="text" name="campground[location]" id="location" placeholder="Yosemite National Park, CA">
                     </div>
                     <div class="form-group">
                         <Button class="btn btn-lg btn-primary btn-block">Submit</Button>
